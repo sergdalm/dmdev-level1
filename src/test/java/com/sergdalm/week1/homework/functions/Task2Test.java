@@ -1,4 +1,4 @@
-package com.sergdalm.week1.homework;
+package com.sergdalm.week1.homework.functions;
 
 import com.sergdalm.week1.homework.functions.Task2;
 import org.junit.jupiter.api.Test;

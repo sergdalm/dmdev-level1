@@ -1,6 +1,6 @@
 package com.sergdalm.week1.homework;
 
-import org.junit.jupiter.api.Assertions;
+import com.sergdalm.week1.homework.functions.Task2;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

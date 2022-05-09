@@ -1,4 +1,4 @@
-package com.sergdalm.week1.homework;
+package com.sergdalm.week1.homework.functions;
 
 /**
  * В переменной minutes лежит число от 0 до 59.

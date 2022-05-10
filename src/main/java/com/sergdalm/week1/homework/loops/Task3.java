@@ -14,7 +14,25 @@ public class Task3 {
 
     public static void main(String[] args) {
         int investmentAmount = calculateInvestmentAmount(3, 2, 600, 10);
-        System.out.println(investmentAmount);
+        int accountAmount = calculateAccountAmount(3, 2, 600, 300);
+
+        System.out.print("Amount of money on bank account: ");
+        System.out.format("%,1d%n", accountAmount);
+        System.out.print("Amount of money on broker account: ");
+        System.out.format("%,1d%n", investmentAmount);
+    }
+
+    private static int calculateAccountAmount(int years, int months, int initialSalary, int monthlyExpenses) {
+        int totalMonths = years * 12 + months;
+        int currentSalary = initialSalary;
+        int accountAmount = 0;
+        for (int i = 1; i < totalMonths; i++) {
+            if (i % 6 == 0) {
+                currentSalary += 400;
+            }
+            accountAmount += currentSalary - monthlyExpenses;
+        }
+        return accountAmount;
     }
 
     private static int calculateInvestmentAmount(int years, int months,
@@ -23,11 +41,10 @@ public class Task3 {
         int currentSalary = initialSalary;
         int investmentAmount = 0;
         for (int i = 1; i < totalMonths; i++) {
-            if (i == 6) {
+            if (i % 6 == 0) {
                 currentSalary += 400;
             }
             investmentAmount += currentSalary * ((double) investmentPercent / 100);
-
         }
         return investmentAmount;
     }

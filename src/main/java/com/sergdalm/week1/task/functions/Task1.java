@@ -1,4 +1,4 @@
-package com.sergdalm.week1.task;
+package com.sergdalm.week1.task.functions;
 
 /**
  * Имеются три числа - день, месяц и год, вводимые пользователем с консоли.

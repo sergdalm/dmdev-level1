@@ -1,4 +1,4 @@
-package com.sergdalm.week1.task;
+package com.sergdalm.week1.task.functions;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

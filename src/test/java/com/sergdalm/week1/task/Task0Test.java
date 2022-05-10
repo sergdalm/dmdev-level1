@@ -1,6 +1,6 @@
 package com.sergdalm.week1.task;
 
-import com.sergdalm.week1.task.Task0;
+import com.sergdalm.week1.task.functions.Task0;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

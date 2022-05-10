@@ -13,14 +13,14 @@ public class Task1 {
 
     public static void main(String[] args) {
         int number = 228910;
-        int numberOfEvenNumbers = printEvenNumber(number);
-        int numberOfOddNumbers = printOddNumbers(number);
+        int numberOfEvenNumbers = getAmountOfEvenNumbers(number);
+        int numberOfOddNumbers = getAmountOfOddNumbers(number);
 
-        System.out.println("Number of even numbers in " + number + ": " + numberOfEvenNumbers);
-        System.out.println("Number of odd numbers in " + number + ": " + numberOfOddNumbers);
+        System.out.println("Amount of even numbers in " + number + ": " + numberOfEvenNumbers);
+        System.out.println("Amount of odd numbers in " + number + ": " + numberOfOddNumbers);
     }
 
-    private static int printEvenNumber(int number) {
+    private static int getAmountOfEvenNumbers(int number) {
         int count = 0;
         for (int i = number; i > 1; i /= 10) {
             if ((i % 10) % 2 == 0) {
@@ -30,7 +30,7 @@ public class Task1 {
         return count;
     }
 
-    private static int printOddNumbers(int number) {
+    private static int getAmountOfOddNumbers(int number) {
         int count = 0;
         for (int i = number; i > 1; i /= 10) {
             if ((i % 10) % 2 != 0) {

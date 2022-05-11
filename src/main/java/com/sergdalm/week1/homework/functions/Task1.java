@@ -23,18 +23,16 @@ public class Task1 {
     }
 
     private static void printPartOfHour(int minutes) {
-        if(minutes < 0 || minutes > 59) {
-            return;
-        }
-
         if (minutes >= 1 && minutes <= 15) {
             System.out.println("This is first quarter of an hour");
         } else if (minutes >= 16 && minutes <= 30) {
             System.out.println("This is second quarter of an hour");
         } else if (minutes >= 31 && minutes <= 45) {
             System.out.println("This is third quarter of an hour");
-        } else {
+        } else if (minutes >= 46 && minutes <= 59) {
             System.out.println("This is fourth quarter of an hour");
+        } else {
+            System.out.println("Minute " + minutes + " ");
         }
     }
 }

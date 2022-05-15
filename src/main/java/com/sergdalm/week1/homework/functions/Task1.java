@@ -32,7 +32,7 @@ public class Task1 {
         } else if (minutes >= 46 && minutes <= 59) {
             System.out.println("This is fourth quarter of an hour");
         } else {
-            System.out.println("Minute " + minutes + " ");
+            System.out.println("Hour contains minutes only from 1 to 59");
         }
     }
 }

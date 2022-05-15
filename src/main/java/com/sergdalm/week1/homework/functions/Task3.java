@@ -5,7 +5,7 @@ package com.sergdalm.week1.homework.functions;
  * Каждый из них задается двумя целочисленными переменными a и b - стороны треугольника.
  * Написать код, в котором вычисляется площадь каждого треугольника
  * и затем эти площади сравниваются друг с другом.
- *
+ * <p>
  * Для этого понадобится написать 2 функции.
  * Первая: по двум сторонам прямоугольного треугольника возвращает его площадь.
  * Вторая: сравнивает переданные площади двух треугольников
@@ -17,7 +17,6 @@ public class Task3 {
     public static void main(String[] args) {
         double sideOfFirstTriangle1 = 20.0;
         double sideOfFirstTriangle2 = 25.0;
-
         double sideOfSecondTriangle1 = 30.0;
         double sideOfSecondTriangle2 = 50.0;
 
@@ -27,12 +26,11 @@ public class Task3 {
         System.out.println(areaOfSecondTriangle);
 
         compareAndShowDifferenceBetweenAreaOfTwoTriangles(areaOfFirstTriangle, areaOfSecondTriangle);
-
     }
 
     private static void compareAndShowDifferenceBetweenAreaOfTwoTriangles(double areaOfFirstTriangle,
                                                                           double areaOfSecondTriangle) {
-        if(areaOfFirstTriangle > areaOfSecondTriangle) {
+        if (areaOfFirstTriangle > areaOfSecondTriangle) {
             System.out.println("Area of first triangle is bigger than area of second triangle");
         } else {
             System.out.println("Area of second triangle is bigger than area of first triangle");

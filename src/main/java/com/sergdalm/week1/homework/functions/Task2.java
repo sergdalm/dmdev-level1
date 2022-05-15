@@ -4,14 +4,14 @@ import java.util.*;
 
 /**
  * Даны 3 переменные:
- *
+ * <p>
  * - operand1 (double)
  * - operand2 (double)
  * - operation (char ‘+’, ‘-’, ‘*’, ‘/’, ‘%’)
- *
+ * <p>
  * Написать функцию, которая принимает в качестве параметров эти три переменные и возвращает результат операции.
  * Протестировать функцию в main.
- *
+ * <p>
  * Например:
  * Параметры: operand1 = 24.4, operand2 = 10.1, operation = ‘+’
  * Результат: 34.5 (24.4 + 10.1)
@@ -29,7 +29,6 @@ public class Task2 {
 
         System.out.println(operand1 + " " + operation + " " + operand2 + " = " +
                 calculate(operand1, operand2, operation));
-
     }
 
     public static double calculate(double operand1, double operand2, char operation) {
@@ -50,27 +49,22 @@ public class Task2 {
     }
 
     private static char getOperation() {
-        List<String> operations = List.of("+", "-", "*", "/", "%");
+
         Scanner scanner = new Scanner(System.in);
-        boolean isOperation = false;
         String input = "";
         do {
             try {
                 input = scanner.nextLine();
-                if (operations.contains(input)) {
-                    isOperation = true;
-                }
             } catch (Exception exc) {
                 // Ignore wrong input
             }
-        } while (!isOperation);
-
+        } while (!validateOperator(input));
         return input.charAt(0);
     }
 
     private static double getDouble() {
         Scanner scanner = new Scanner(System.in);
-        for( ; ; ) {
+        for (; ; ) {
             try {
                 String input = scanner.nextLine();
                 return Double.parseDouble(input);
@@ -78,5 +72,10 @@ public class Task2 {
                 // Ignore wrong input
             }
         }
+    }
+
+    private static boolean validateOperator(String str) {
+        List<String> operations = List.of("+", "-", "*", "/", "%");
+        return operations.contains(str);
     }
 }

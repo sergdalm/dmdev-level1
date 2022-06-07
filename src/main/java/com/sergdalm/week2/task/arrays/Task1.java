@@ -15,7 +15,7 @@ public class Task1 {
         System.out.println(Arrays.toString(shiftedValues));
     }
 
-    private static int[] shiftArray(int[] values, int shift) {
+    public static int[] shiftArray(int[] values, int shift) {
         if (shift == 0) {
             return values;
         }

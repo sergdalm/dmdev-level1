@@ -1,8 +1,6 @@
 package com.sergdalm.week3.homework.space;
 
-import java.util.Arrays;
-
-public class SpaceObjectList implements List {
+public class SpaceObjectList implements MyList {
     private final int DEFAULT_CAPACITY = 10;
     private final double FILL_RATIO = 0.75;
     private int capacity;

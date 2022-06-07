@@ -26,7 +26,7 @@ public class Task3 {
         int totalMonths = years * 12 + months;
         int currentSalary = initialSalary;
         int accountAmount = 0;
-        for (int i = 1; i < totalMonths; i++) {
+        for (int i = 1; i <= totalMonths; i++) {
             if (i % 6 == 0) {
                 currentSalary += 400;
             }
@@ -40,11 +40,12 @@ public class Task3 {
         int totalMonths = years * 12 + months;
         int currentSalary = initialSalary;
         int investmentAmount = 0;
-        for (int i = 1; i < totalMonths; i++) {
+        for (int i = 1; i <= totalMonths; i++) {
+            investmentAmount *= 1.02;
+            investmentAmount += currentSalary * ((double) investmentPercent / 100);
             if (i % 6 == 0) {
                 currentSalary += 400;
             }
-            investmentAmount += currentSalary * ((double) investmentPercent / 100);
         }
         return investmentAmount;
     }

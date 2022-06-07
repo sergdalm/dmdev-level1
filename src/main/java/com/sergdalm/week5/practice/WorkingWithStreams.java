@@ -1,6 +1,5 @@
 package com.sergdalm.week5.practice;
 
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -14,21 +13,21 @@ public class WorkingWithStreams {
         Stream<String> namesStream = Stream.of("Alex", "Zara", "Nick");
         Stream<Object> streamFromArray = Arrays.stream(names.toArray());
 
-        List<Person> people = List.of(
-                new Person("Ivan", 21),
-                new Person("Petya", 18),
-                new Person("Oscar", 15),
-                new Person("Sveta", 27),
-                new Person("Kirill", 25),
-                new Person("Nadya", 30),
-                new Person("Olesya", 13),
-                new Person("Kira", 40)
+        List<PersonWithName> people = List.of(
+                new PersonWithName("Ivan", 21),
+                new PersonWithName("Petya", 18),
+                new PersonWithName("Oscar", 15),
+                new PersonWithName("Sveta", 27),
+                new PersonWithName("Kirill", 25),
+                new PersonWithName("Nadya", 30),
+                new PersonWithName("Olesya", 13),
+                new PersonWithName("Kira", 40)
 
         );
 
         // вопрос по поводу порядка операций в стримах
         // Если мы фильтруем, затем лимитируем
-        List<Person> youngPeople = people.stream()
+        List<PersonWithName> youngPeople = people.stream()
                 .filter(person -> person.getAge() <= 18)
 //                .peek(System.out::println)
                 .limit(2)
@@ -73,9 +72,9 @@ public class WorkingWithStreams {
 
         int sum = words.mapToInt(String::length).sum();
 
-        Map<String, Optional<Person>> collect = people.stream().collect(Collectors.groupingBy(
-                Person::getName,
-                Collectors.maxBy(Comparator.comparing(Person::getAge))));
+        Map<String, Optional<PersonWithName>> collect = people.stream().collect(Collectors.groupingBy(
+                PersonWithName::getName,
+                Collectors.maxBy(Comparator.comparing(PersonWithName::getAge))));
 
         System.out.println(collect);
 

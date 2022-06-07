@@ -1,16 +1,26 @@
 package com.sergdalm.week5.practice;
 
 public class Person {
-    private String name;
-    private int age;
+    private final String firstName;
+    private final String lastName;
+    private final int age;
 
-    public Person(String name, int age) {
-        this.name = name;
+    public Person(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return firstName + lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public int getAge() {
@@ -20,7 +30,8 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 '}';
     }

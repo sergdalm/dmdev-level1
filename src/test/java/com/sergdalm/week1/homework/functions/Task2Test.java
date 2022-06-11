@@ -1,9 +1,9 @@
 package com.sergdalm.week1.homework.functions;
 
-import com.sergdalm.week1.homework.functions.Task2;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class Task2Test {
 

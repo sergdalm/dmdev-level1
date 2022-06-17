@@ -6,15 +6,15 @@ import java.util.List;
 
 public class RobotMakerRunner {
     public static void main(String[] args) {
-        int days = 100;
+        Night night = new Night(100, 100);
         List<RobotPart> dump = Collections.synchronizedList(new ArrayList<>());
-        Scientist scientist1 = new Scientist("scientist 1", days, dump);
-        Scientist scientist2 = new Scientist("scientist 2", days, dump);
+        Thread fabric = new Thread(new Fabric(dump, night));
+        Scientist scientist1 = new Scientist("scientist 1", dump, night);
+        Scientist scientist2 = new Scientist("scientist 2", dump, night);
         Thread scientistThread1 = new Thread(scientist1);
         Thread scientistThread2 = new Thread(scientist2);
 
 
-        Thread fabric = new Thread(new Fabric(dump, days));
 
         fabric.start();
         scientistThread1.start();

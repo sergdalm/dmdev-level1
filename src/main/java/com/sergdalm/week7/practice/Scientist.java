@@ -8,36 +8,39 @@ import java.util.Set;
 
 public class Scientist implements Runnable {
     private final String name;
-    private final int NIGHT_WAITING = 100;
-    private final int amountOfDays;
+    private final Night night;
     List<RobotPart> allRobotParts = new ArrayList<>();
     Set<RobotPart> partsForOneRobot = new HashSet<>();
     List<Robot> robots = new ArrayList<>();
     private final Servant servant;
 
-    public Scientist(String name, int amountOfDays, List<RobotPart> dump) {
+    public Scientist(String name, List<RobotPart> dump, Night night) {
         this.name = name;
-        this.amountOfDays = amountOfDays;
         servant = new Servant(dump);
+        this.night = night;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < amountOfDays; i++) {
+        for (int i = 0; i < night.getAmountOfNights(); i++) {
             servant.getDetail();
             if (partsForOneRobot.size() == RobotPart.values().length) {
                 makeRobot();
             }
+            waitForNextNight();
+        }
+
+        System.out.println(name + " made " + robots.size() + " robots");
+        System.out.println(name + "'s robot pats: " + partsForOneRobot + ", " + allRobotParts);
+    }
+
+    private void waitForNextNight() {
+        synchronized (night.getLock()) {
             try {
-                Thread.sleep(NIGHT_WAITING);
+                night.getLock().wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
-        try {
-        } finally {
-            System.out.println(name + " made " + robots.size() + " robots");
-            System.out.println(name + "'s robot pats: " + partsForOneRobot + ", " + allRobotParts);
         }
     }
 
@@ -81,30 +84,24 @@ public class Scientist implements Runnable {
         }
 
         public void getDetail() {
-            for (int i = 0; i < Scientist.this.amountOfDays; i++) {
-                synchronized (dump) {
-                    while (!dump.isEmpty()) {
-                        RobotPart part = dump.remove(0);
-                        System.out.println("Servant of " + Scientist.this.name + " found " + part);
-                        robotParts.add(part);
-                        try {
-                            dump.wait(1L);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!robotParts.isEmpty()) {
-                        Iterator<RobotPart> iterator = robotParts.iterator();
-                        while (iterator.hasNext()) {
-                            RobotPart part = iterator.next();
-                            Scientist.this.getElement(part);
-                            iterator.remove();
-                        }
-                    }
+            synchronized (dump) {
+                while (!dump.isEmpty()) {
+                    RobotPart part = dump.remove(0);
+                    robotParts.add(part);
                     try {
-                        dump.wait(Scientist.this.NIGHT_WAITING);
+                        dump.wait(1L);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                    }
+                }
+
+                System.out.println("Servant of " + Scientist.this.name + " found " + robotParts);
+                if (!robotParts.isEmpty()) {
+                    Iterator<RobotPart> iterator = robotParts.iterator();
+                    while (iterator.hasNext()) {
+                        RobotPart part = iterator.next();
+                        Scientist.this.getElement(part);
+                        iterator.remove();
                     }
                 }
             }

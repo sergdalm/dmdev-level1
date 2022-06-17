@@ -37,7 +37,8 @@ public class Factory extends Thread {
 
     private void throwNewRobotDetails() {
         int countDetailsForThrowingToDump = RandomUtil.getNextWithoutZero(MAX_DETAILS_COUNT);
-        synchronized (dump.getLock()) {
+//        synchronized (dump.getLock()) {
+        synchronized (dump) {
             for (int j = 0; j < countDetailsForThrowingToDump; j++) {
                 RobotDetail robotDetail = RobotDetail.CASHED_VALUES.get(RandomUtil.getNext(RobotDetail.CASHED_VALUES.size()));
                 dump.add(robotDetail);

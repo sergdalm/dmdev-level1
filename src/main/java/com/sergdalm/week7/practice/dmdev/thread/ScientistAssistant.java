@@ -38,7 +38,8 @@ public class ScientistAssistant extends Thread {
     private List<RobotDetail> gatherRobotDetailsFromFactory() {
         int detailsCount = RandomUtil.getNextWithoutZero(MAX_DETAILS_COUNT);
         List<RobotDetail> gatheredDetailsFromFactory = new ArrayList<>(MAX_DETAILS_COUNT);
-        synchronized (dump.getLock()) {
+//        synchronized (dump.getLock()) {
+        synchronized (dump) {
             if (dump.size() <= detailsCount) {
                 gatheredDetailsFromFactory.addAll(dump.removeAll());
             } else if (dump.isNotEmpty()) {

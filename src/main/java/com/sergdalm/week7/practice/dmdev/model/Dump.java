@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Dump {
 
-    private final Object lock = new Object();
+//    private final Object lock = new Object();
     private final List<RobotDetail> dump = new LinkedList<>();
 
     public Dump() {
@@ -38,7 +38,7 @@ public class Dump {
         return !dump.isEmpty();
     }
 
-    public Object getLock() {
-        return lock;
-    }
+//    public Object getLock() {
+//        return lock;
+//    }
 }

@@ -1,4 +1,4 @@
-package com.sergdalm.week7.task.cuncurrent.pool;
+package com.sergdalm.week7.task.concurrent.pool;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

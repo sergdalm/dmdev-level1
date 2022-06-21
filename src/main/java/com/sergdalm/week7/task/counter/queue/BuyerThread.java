@@ -1,6 +1,5 @@
-package com.sergdalm.week7.task.queue;
+package com.sergdalm.week7.task.counter.queue;
 
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 
 public class BuyerThread implements Runnable {
@@ -23,7 +22,7 @@ public class BuyerThread implements Runnable {
         // По-хорошему надо возвращать cashbox в блоке finally
         // если кто-то прервал наш поток, но для демонстрации можно и без него.
         try {
-            Cashbox cashbox =  cashboxes.take();
+            Cashbox cashbox = cashboxes.take();
             System.out.println(Thread.currentThread().getName() + (waitingTime > 5L ? " (ТОРМОЗ)" : "") + " обсуживается в кассе " + cashbox);
             Thread.sleep(waitingTime);
             cashboxes.add(cashbox);

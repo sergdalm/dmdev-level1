@@ -1,4 +1,4 @@
-package com.sergdalm.week7.task.queue;
+package com.sergdalm.week7.task.counter.queue;
 
 public class Cashbox {
     private static int generator = 1;

@@ -3,8 +3,15 @@ package com.sergdalm.week8.practice;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * Задан log-file с описанием четырёхдневных курсов в следующем виде:
@@ -56,9 +63,18 @@ public class Task {
         Path logFilePath = Path.of("src", "main", "resources", "log-file.txt");
         String logFile = Files.readString(logFilePath);
 
-        String regex = "((\\d{2}:\\d{2}) .+?\n)+?\n";
+        String regex = "(\\d{2}:\\d{2}) (.+?)\n";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(logFile);
+        Map<String, String> lessons = new LinkedHashMap<>();
+        while (matcher.find()) {
+            lessons.put(matcher.group(1), matcher.group(2));
+        }
+
+        Set<String> keySet = lessons.keySet();
+        List<String> result = new ArrayList<>();
+        Iterator<String> iterator = keySet.iterator();
+
 
 
     }

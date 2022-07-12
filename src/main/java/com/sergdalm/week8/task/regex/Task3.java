@@ -1,4 +1,4 @@
-package com.sergdalm.week8.task;
+package com.sergdalm.week8.task.regex;
 
 /**
  * 3. Написать программу, выполняющую поиск в строке всех тегов

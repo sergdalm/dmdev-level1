@@ -1,4 +1,4 @@
-package com.sergdalm.week8.task;
+package com.sergdalm.week8.task.regex;
 
 import java.util.regex.Pattern;
 
